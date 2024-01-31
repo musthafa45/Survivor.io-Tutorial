@@ -17,7 +17,6 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         ETouch.Touch.onFingerDown += Touch_onFingerDown;
-        ETouch.Touch.onFingerMove += Touch_onFingerMove;
         ETouch.Touch.onFingerUp += Touch_onFingerUp;
 
         SetActiveJoyStickImages(false);
@@ -33,7 +32,6 @@ public class InputManager : MonoBehaviour
 
     private void Touch_onFingerDown(Finger currentFinger)
     {
-        Debug.Log("Finger Down");
         Vector2 touchPosition = currentFinger.currentTouch.screenPosition;
         if(IsValidTouchPosition(touchPosition))
         {
@@ -48,17 +46,9 @@ public class InputManager : MonoBehaviour
         return touchPosition.y < Screen.height / 2f;
     }
 
-    private void Touch_onFingerMove(Finger obj)
-    {
-        Debug.Log("Finger Move");
-
-    }
-
     private void Touch_onFingerUp(Finger obj)
     {
-        Debug.Log("Finger Up");
         SetActiveJoyStickImages(false);
-
     }
 
     private void Update()
@@ -78,7 +68,6 @@ public class InputManager : MonoBehaviour
         EnhancedTouchSupport.Disable();
 
         ETouch.Touch.onFingerDown -= Touch_onFingerDown;
-        ETouch.Touch.onFingerMove -= Touch_onFingerMove;
         ETouch.Touch.onFingerUp -= Touch_onFingerUp;
     }
 }
