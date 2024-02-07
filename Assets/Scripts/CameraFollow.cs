@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float offsetX;
     [SerializeField] private float offsetY;
     private Camera mainCamera;
-    [SerializeField] private float lerpSpeed = 1f;
+    [SerializeField] private float lerpSpeed = 5f;
 
     private void Awake()
     {

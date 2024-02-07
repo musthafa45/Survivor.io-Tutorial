@@ -40,4 +40,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody2D.velocity = playerInputValue * playerSpeed * 10 * Time.fixedDeltaTime;
     }
+
+    public bool IsWalking(){
+        return rigidBody2D.velocity != Vector2.zero;
+    }
 }
