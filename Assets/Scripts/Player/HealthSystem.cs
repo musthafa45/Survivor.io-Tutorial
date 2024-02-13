@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+    public event Action OnPlayerHealthFinished;
     private float currentHealth;
 
     private const float maxHealth = 100;
@@ -19,6 +20,18 @@ public class HealthSystem : MonoBehaviour
     public void DecreaseHealth(float toDecreaseHealth)
     {
         currentHealth = Mathf.Clamp(currentHealth - toDecreaseHealth,0,maxHealth);
+
+        if(currentHealth <= 0)
+        {
+            // Die Event
+            OnPlayerHealthFinished?.Invoke();
+
+        foreach(Enemy enemy in FindObjectsOfType<Enemy>())
+        {
+            enemy.SetState(Enemy.EnemyState.Idle);
+        }
+        
+        }
     }
 
     public float GetCurrentHealth()
