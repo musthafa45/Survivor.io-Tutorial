@@ -13,8 +13,9 @@ public class HitBox : MonoBehaviour
        {
           if(collider2D.gameObject.TryGetComponent(out PlayerMovement player))
           {
-             Debug.Log("Player can Take Damage Now ");
+             player.GetComponent<HealthSystem>().DecreaseHealth(10f);
           }
        }
     }
+
 }

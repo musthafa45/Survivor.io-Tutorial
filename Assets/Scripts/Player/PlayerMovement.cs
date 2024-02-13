@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -28,11 +25,10 @@ public class PlayerMovement : MonoBehaviour
             // Player Looking left
             transform.localScale = new Vector3(-playerLocalScale.x,transform.localScale.y,transform.localScale.z) ;
         }
-        else
+        else if(playerInputValue.x > 0)
         {
             // player Looking right.
             transform.localScale = new Vector3(playerLocalScale.x, transform.localScale.y, transform.localScale.z);
-
         }
     }
 
